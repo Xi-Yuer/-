@@ -1,0 +1,118 @@
+Page {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0 20rpx;
+    overflow: hidden;
+}
+
+.unLogin {
+    width: 100vw;
+    height: 80vh;
+}
+
+.unLogin image {
+    width: 100%;
+    height: 100%;
+}
+
+.bg {
+    width: 100%;
+    height: 30vh;
+    text-align: center;
+}
+
+.bg image {
+    width: 100%;
+    height: 100%;
+}
+
+.loginText {
+    font-size: 45rpx;
+    font-weight: 500;
+    margin-top: 50rpx;
+    margin-left: 70rpx;
+}
+
+.loginInput {
+    width: 100%;
+    height: 280rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 40rpx;
+}
+
+.loginInput input {
+    width: 80%;
+    border-bottom: 1rpx solid rgba(165, 165, 165, 0.315);
+    height: 80rpx;
+    color: black;
+}
+
+.register {
+    width: 100%;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50rpx;
+}
+
+.ub {
+    width: 100%;
+    height: 350rpx;
+    box-sizing: border-box;
+    text-align: center;
+    /* border-bottom: 10rpx solid rgb(211, 211, 211); */
+}
+.userInfo{
+    display: flex;
+    padding-bottom: 20rpx;
+    height: 150rpx;
+    width: 100%;
+    border-top-left-radius: 30%;
+    border-top-right-radius: 30%;
+    background-color: #c2c2c2;
+    /* border-bottom: 8rpx solid #fb72991c; */
+}
+.userInfo .avatarImg {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.userInfo .avatarImg image {
+    width: 150rpx;
+    height: 150rpx;
+    border-radius: 50%;
+}
+.userInfo .userName {
+    font-size: 35rpx;
+    font-weight: bold;
+}
+.createTime {
+    font-size: 25rpx;
+    color: rgb(46, 46, 46);
+}
+.avatarData {
+    display: flex;
+    flex: 2;
+    flex-direction: column;
+}
+.updateBtn {
+    display: flex;
+}
+.updateInfo {
+    margin-top: 20rpx;
+    text-align: center;
+    padding: 5rpx 80rpx;
+    border: 3rpx solid #fb7299;
+    border-radius: 10rpx;
+    color: #fb7299;
+    font-size:25rpx;
+}
+.momentScroll {
+    height: 900rpx;
+}

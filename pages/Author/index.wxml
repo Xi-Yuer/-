@@ -1,0 +1,54 @@
+<wxs src="../../utils/time.wxs" module="Time"></wxs>
+<!-- 未登录页面 -->
+<view class="unLogin" wx:if="{{showLoginPage && !loginSucessfull}}">
+    <image src="../../assets/img/login.png" mode="aspectFill"></image>
+    <view class="btn">
+        <button type="primary" plain bindtap="loginBtnClick">登录</button>
+    </view>
+</view>
+<!-- 登录注册页面 -->
+<view class="login" wx:elif="{{!showLoginPage && !loginSucessfull}}">
+    <view class="bg">
+        <image src="../../assets/img/login-bg.png" mode="aspectFill"></image>
+    </view>
+    <view class="loginText">
+        <text>{{isLogin?'登录':'注册'}}</text>
+    </view>
+    <view class="loginInput">
+        <input value="{{name}}" type="text" bindinput="nameInput" placeholder="请输入用户名" />
+        <input value="{{password}}" type="text" bindinput="passwordInput" placeholder="请输入密码" password />
+    </view>
+    <view>
+        <button type="primary" bindtap="AccountBtnClick">{{isLogin?'登录':'注册'}}</button>
+    </view>
+    <view class="register">
+        <text>{{isLogin?'没有账号？':'已有账号？'}}</text>
+        <text bindtap="registry" style="color: rgb(36, 124, 207);">{{isLogin?'去注册':'去登陆'}}</text>
+    </view>
+</view>
+<!-- 成功登录页面 -->
+<view class="user" wx:if="{{loginSucessfull}}">
+    <view class="ub">
+        <image src="../../assets/img/login-bg.png" mode="aspectFill"></image>
+    </view>
+    <view class="userInfo">
+        <view class="avatarImg">
+            <image src="{{userInfo.avatarUrl}}"></image>
+        </view>
+        <view class="avatarData">
+            <text class="userName">{{userInfo.name}}</text>
+            <text class="createTime iconfont icon-shengri">{{Time.getTime(userInfo.createTime)}}</text>
+            <view class="updateBtn">
+                <text class="updateInfo">编辑资料</text>
+            </view>
+        </view>
+    </view>
+    <view class="userMoment">
+        <area-header title="我的动态" />
+        <scroll-view scroll-y class="momentScroll">
+            <block wx:for="{{userMomentList}}" wx:key="index">
+                <active moment="{{item}}" />
+            </block>
+        </scroll-view>
+    </view>
+</view>

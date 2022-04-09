@@ -1,0 +1,31 @@
+{
+    "pages": [
+        "pages/Author/index",
+        "pages/Home/index"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#ffe472",
+        "navigationBarTitleText": "动态猫",
+        "navigationBarTextStyle": "black"
+    },
+    "tabBar": {
+        "selectedColor":"#ffe472",
+        "list": [
+            {
+                "pagePath": "pages/Home/index",
+                "text": "动态",
+                "iconPath": "assets/img/action(b).png",
+                "selectedIconPath": "assets/img/action(a).png"
+            },
+            {
+                "pagePath": "pages/Author/index",
+                "text": "我的",
+                "iconPath": "assets/img/my(b).png",
+                "selectedIconPath": "assets/img/my(a).png"
+            }
+        ]
+    },
+    "style": "v2",
+    "sitemapLocation": "sitemap.json"
+}

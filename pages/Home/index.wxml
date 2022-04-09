@@ -1,0 +1,10 @@
+<view class="home">
+    <van-search shape="round" disabled background="#fafafa" value="{{searchValue}}" placeholder="搜索动态" />
+    <Banner banner="{{banner}}"></Banner>
+    <area-header title="热门动态" />
+    <view>
+        <block wx:for="{{momentArr}}" wx:key="index">
+            <active moment="{{item}}" />
+        </block>
+    </view>
+</view>

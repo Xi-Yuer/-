@@ -1,0 +1,14 @@
+<view class="banner">
+    <swiper 
+        indicator-dots 
+        autoplay 
+        circular 
+        indicator-color="#c2c2c2" 
+        indicator-active-color="#fa2c5f">
+        <block wx:for="{{banner}}" wx:key="index">
+            <swiper-item>
+                <image src="{{item}}" mode="scaleToFill" class="banner" />
+            </swiper-item>
+        </block>
+    </swiper>
+</view>

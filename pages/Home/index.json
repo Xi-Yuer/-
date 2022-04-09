@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "Banner":"../../components/banner/index",
+    "van-search": "@vant/weapp/search/index",
+    "area-header":"../../components/area-header/index",
+    "active":"../../components/active/index"
+  }
+}

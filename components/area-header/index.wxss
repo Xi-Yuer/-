@@ -1,0 +1,6 @@
+.area-header {
+    margin: 20rpx 0;
+}
+.title {
+    font-weight: bold;
+}

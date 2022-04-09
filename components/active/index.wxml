@@ -1,0 +1,38 @@
+<wxs src="../../utils/time.wxs" module="Time"></wxs>
+<view class="moment">
+    <view class="user">
+        <view class="avatarUrl">
+            <image src="{{moment.author.avatarUrl}}" mode="aspectFill"></image>
+        </view>
+        <view class="momentInfo">
+            <view class="avatarName">{{moment.author.name}}</view>
+            <view class="momentTime">{{Time.getTime(moment.updateTime)}}</view>
+        </view>
+    </view>
+    <view class="momentText">
+        <text>{{moment.content}}</text>
+    </view>
+    <view class="momentImg" wx:if="{{moment.images}}">
+        <van-col span="6" gutter="10">
+            <block wx:for="{{moment.images}}" wx:key="index">
+                <van-image bind:click="onClickShow" data-index="{{index}}" width="80" height="80" src="{{item}}" class="momenItemImg" />
+            </block>
+            <van-overlay show="{{ show }}" bind:click="onClickHide">
+                <view class="wrapper">
+                    <image mode="aspectFit" block src="{{moment.images[imgIndex]}}" catch:tap="noop"></image>
+                </view>
+            </van-overlay>
+        </van-col>
+    </view>
+    <view class="momentControl">
+        <view class="like">
+            <van-icon name="like-o" /> {{moment.likeCount}}
+        </view>
+        <view class="comment">
+            <van-icon name="chat-o" /> {{moment.momentCount}}
+        </view>
+        <view class="label">
+            <van-icon name="label-o" /> {{moment.labelCount}}
+        </view>
+    </view>
+</view>
