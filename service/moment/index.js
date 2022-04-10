@@ -15,9 +15,21 @@ const getMomentById = async (momentId) => {
     const result = await request.get(`/moment/${momentId}`)
     return result
 }
+// 查询用户是否给动态点赞
+const userIsLikeMoment = async (momentId) => {
+    const result = await request.get(`/moment/${momentId}/islike`, {}, true)
+    return result
+}
+// 给动态点赞
+const likeMomentById = async (momentId) => {
+    const result = await request.post(`/moment/${momentId}/like`, {}, true)
+    return result
+}
 
 export {
     getMomentList,
     getUserAllMoment,
-    getMomentById
+    getMomentById,
+    userIsLikeMoment,
+    likeMomentById
 }

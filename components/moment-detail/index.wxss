@@ -60,3 +60,9 @@
     height: 120px;
     background-color: #fff;
 }
+.tag {
+    display: flex;
+}
+.tag .tagItem {
+    padding: 10rpx 10rpx;
+}

@@ -1,4 +1,4 @@
-// const token = `${wx.getStorageSync('TOKEN_KEY')}`
+const token = `${wx.getStorageSync('TOKEN_KEY')}`
 
 const BASE_URL = "http://112.124.28.77:8005"
 // 用我已经部署好的
@@ -9,23 +9,20 @@ const LOGIN_BASE_URL = "http://112.124.28.77:8005"
 class HYRequest {
   constructor(baseURL, authHeader = {}) {
     this.baseURL = baseURL
-    // this.authHeader = authHeader'
-    this.baseHeader = {
-      Authorzation: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjAsIm5hbWUiOiJhZG1pbiIsImlhdCI6MTY0OTU2MzMxNywiZXhwIjoxNjQ5NjQ5NzE3fQ.leCTFeUoqGA8NpkOzQ1I5GP3SNhG5URbuavpcF9blPc`
-    }
+    this.authHeader = authHeader
   }
 
-  request(url, method, params) {
-    // const finalHeader = isAuth ? {
-    //   ...this.authHeader,
-    //   Authorzation: token,
-    //   ...header
-    // } : header
+  request(url, method, params, isAuth, header) {
+    const finalHeader = isAuth ? {
+      ...this.authHeader,
+      Authorization: 'Bearer ' + token,
+      ...header
+    } : header
     return new Promise((resolve, reject) => {
       wx.request({
         url: this.baseURL + url,
         method: method,
-        header: this.baseHeader,
+        header: finalHeader,
         data: params,
         success: function (res) {
           resolve(res.data)
@@ -45,11 +42,11 @@ class HYRequest {
 
 const hyRequest = new HYRequest(BASE_URL)
 
-// const hyLoginRequest = new HYRequest(LOGIN_BASE_URL, {
-//   token
-// })
+const hyLoginRequest = new HYRequest(LOGIN_BASE_URL, {
+  token
+})
 
 export default hyRequest
-// export {
-//   hyLoginRequest
-// }
+export {
+  hyLoginRequest
+}

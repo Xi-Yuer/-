@@ -1,5 +1,6 @@
 <wxs src="../../utils/time.wxs" module="Time"></wxs>
 <view class="moment">
+    <!-- 用户 -->
     <view class="user">
         <view class="avatarUrl">
             <image src="{{moment.author.avatarUrl}}" mode="aspectFill"></image>
@@ -9,9 +10,11 @@
             <view class="momentTime">{{Time.getTime(moment.updateTime)}}</view>
         </view>
     </view>
+    <!-- 文字 -->
     <view class="momentText" bindtap="navToMoment">
         <text>{{moment.content}}</text>
     </view>
+    <!-- 图文 -->
     <view class="momentImg" wx:if="{{moment.images}}">
         <van-col span="6" gutter="10">
             <block wx:for="{{moment.images}}" wx:key="index">
@@ -24,9 +27,10 @@
             </van-overlay>
         </van-col>
     </view>
+    <!-- 赞相关 -->
     <view class="momentControl">
-        <view class="like">
-            <van-icon name="like-o" /> {{moment.likeCount}}
+        <view class="like" bindtap="likeMoment">
+            <van-icon name="like-o" class="{{isLike?'isLike':''}}" /> {{moment.likeCount}}
         </view>
         <view class="comment" bindtap="navToMoment">
             <van-icon name="chat-o" /> {{moment.momentCount}}

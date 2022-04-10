@@ -7,7 +7,9 @@
         <view class="commentsInfo">
             <view class="name">{{comment.user.name}}</view>
             <view class="time">{{Time.getTime(comment.createTime)}}</view>
-            <view class="likeCount" bindtap="likeComment"><van-icon name="like-o" />  {{comment.likeCount}}</view>
+            <view class="likeCount" bindtap="likeComment">
+                <van-icon name="like-o" class="{{isLike?'isLike':''}}" /> {{comment.likeCount}}
+            </view>
         </view>
         <view class="commentText">{{comment.content}}</view>
     </view>

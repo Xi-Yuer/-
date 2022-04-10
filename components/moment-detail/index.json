@@ -5,6 +5,7 @@
         "van-image": "@vant/weapp/image/index",
         "van-icon": "@vant/weapp/icon/index",
         "van-overlay": "@vant/weapp/overlay/index",
-        "area-header": "../../components/area-header/index"
+        "area-header": "../../components/area-header/index",
+        "van-tag": "@vant/weapp/tag/index"
     }
 }

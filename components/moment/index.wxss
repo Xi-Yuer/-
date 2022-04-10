@@ -73,3 +73,7 @@
     height: 120px;
     background-color: #fff;
 }
+
+.isLike {
+    color: red;
+}

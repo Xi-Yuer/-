@@ -41,3 +41,7 @@ page {
     color: rgb(36, 36, 36);
     margin-top: 25rpx;
 }
+
+.isLike {
+    color: red;
+}

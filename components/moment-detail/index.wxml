@@ -27,6 +27,12 @@
             </van-overlay>
         </van-col>
     </view>
+    <!-- 标签 -->
+    <view class="tag">
+        <block wx:for="{{moment.labels}}" wx:key="{{item.id}}">
+            <van-tag plain type="primary" class="tagItem">{{item.name}}</van-tag>
+        </block>
+    </view>
     <!-- 评论 -->
     <area-header title="评论" />
     <block wx:for="{{moment.comments}}" wx:key="index">

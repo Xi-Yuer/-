@@ -1,5 +1,6 @@
 import {
-    likeCommentById
+    likeCommentById,
+    userIsLike
 } from '../../service/comment/index'
 Component({
     /**
@@ -16,16 +17,47 @@ Component({
      * 组件的初始数据
      */
     data: {
-
+        isLike: false
     },
-
-    /**
-     * 组件的方法列表
-     */
+    lifetimes: {
+        attached: async function () {
+            const result = await userIsLike(this.properties.comment.id)
+            if (result.status === 1) {
+                // 已点赞
+                this.setData({
+                    isLike: true
+                })
+            } else if (result.status === 0) {
+                this.setData({
+                    isLike: false
+                })
+            }
+        }
+    },
     methods: {
         async likeComment() {
             const result = await likeCommentById(this.properties.comment.id)
-            console.log(result);
+            if (result.status === 1) {
+                this.setData({
+                    comment: {
+                        ...this.properties.comment,
+                        likeCount: this.properties.comment.likeCount += 1
+                    },
+                    isLike: true
+                })
+            } else if (result.status === 0) {
+                this.setData({
+                    comment: {
+                        ...this.properties.comment,
+                        likeCount: this.properties.comment.likeCount -= 1
+                    },
+                    isLike: false
+                })
+            } else {
+                wx.showToast({
+                    title: '请登录之后在操作',
+                })
+            }
         }
     }
 })
