@@ -1,7 +1,7 @@
 {
   "usingComponents": {
     "area-header":"../../components/area-header/index",
-    "active":"../../components/active/index"
+    "active":"../../components/moment/index"
   },
   "navigationStyle":"custom"
 }

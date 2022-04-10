@@ -1,0 +1,10 @@
+{
+    "component": true,
+    "usingComponents": {
+        "comment": "../comment/index",
+        "van-image": "@vant/weapp/image/index",
+        "van-icon": "@vant/weapp/icon/index",
+        "van-overlay": "@vant/weapp/overlay/index",
+        "area-header": "../../components/area-header/index"
+    }
+}

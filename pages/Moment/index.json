@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "moment-detail": "../../components/moment-detail/index"
+  }
+}

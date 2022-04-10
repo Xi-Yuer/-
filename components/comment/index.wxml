@@ -1,0 +1,14 @@
+<wxs src="../../utils/time.wxs" module="Time"></wxs>
+<view class="comment">
+    <view class="avatart">
+        <image src="{{comment.user.avatarUrl}}"></image>
+    </view>
+    <view class="text">
+        <view class="commentsInfo">
+            <view class="name">{{comment.user.name}}</view>
+            <view class="time">{{Time.getTime(comment.createTime)}}</view>
+            <view class="likeCount" bindtap="likeComment"><van-icon name="like-o" />  {{comment.likeCount}}</view>
+        </view>
+        <view class="commentText">{{comment.content}}</view>
+    </view>
+</view>

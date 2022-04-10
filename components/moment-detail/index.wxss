@@ -1,0 +1,62 @@
+.moment {
+    box-sizing: border-box;
+    width: 100%;
+    margin: 20rpx 0;
+    padding: 20rpx;
+    background-color: white;
+}
+
+.user {
+    width: 100%;
+    height: 80rpx;
+    overflow: hidden;
+    display: flex;
+    margin-bottom: 20rpx;
+}
+
+.avatarUrl image {
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 50%;
+    margin-right: 30rpx;
+}
+
+.momentInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.avatarName {
+    font-weight: bold;
+}
+
+.momentTime {
+    font-size: 18rpx;
+    color: grey;
+}
+
+.momentImg {
+    display: flex;
+    box-sizing: border-box;
+    margin-top: 20rpx;
+    justify-content: space-between;
+    padding-bottom: 10rpx;
+    border-bottom: 10rpx solid rgb(253, 247, 247);
+}
+
+.momenItemImg {
+    flex: 1;
+}
+.wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.block {
+    width: 120px;
+    height: 120px;
+    background-color: #fff;
+}

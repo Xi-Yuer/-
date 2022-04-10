@@ -35,5 +35,11 @@ Component({
                 show: false
             });
         },
+        // 路由跳转
+        navToMoment() {
+            wx.navigateTo({
+                url: '/pages/Moment/index?id=' + this.data.moment.id
+            })
+        }
     }
 })

@@ -1,7 +1,8 @@
 {
     "pages": [
         "pages/Author/index",
-        "pages/Home/index"
+        "pages/Home/index",
+        "pages/Moment/index"
     ],
     "window": {
         "backgroundTextStyle": "light",
@@ -10,7 +11,7 @@
         "navigationBarTextStyle": "black"
     },
     "tabBar": {
-        "selectedColor":"#ffe472",
+        "selectedColor": "#ffe472",
         "list": [
             {
                 "pagePath": "pages/Home/index",
