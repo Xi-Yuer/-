@@ -1,12 +1,16 @@
+page {
+    position: relative;
+    padding: 20rpx;
+}
+
 .moment {
     box-sizing: border-box;
     width: 100%;
-    margin: 20rpx 0;
-    padding: 20rpx;
     background-color: white;
 }
 
 .user {
+    padding: 0 20rpx;
     width: 100%;
     height: 80rpx;
     overflow: hidden;
@@ -36,8 +40,14 @@
     color: grey;
 }
 
+.momentText {
+    padding: 0 20rpx;
+}
+
 .momentImg {
+    padding: 0 20rpx;
     display: flex;
+    flex-wrap: wrap;
     box-sizing: border-box;
     margin-top: 20rpx;
     justify-content: space-between;
@@ -46,23 +56,50 @@
 }
 
 .momenItemImg {
-    flex: 1;
-}
-.wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
+    padding: 0 5rpx;
 }
 
-.block {
-    width: 120px;
-    height: 120px;
-    background-color: #fff;
-}
 .tag {
+    padding: 0 10rpx;
     display: flex;
 }
+
 .tag .tagItem {
     padding: 10rpx 10rpx;
+}
+
+.C_sendComment {
+    position: absolute;
+    height: 120rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
+}
+
+.C_input {
+    flex: 2;
+    padding-left: 20rpx;
+}
+
+.C_input input {
+    padding: 0 30rpx;
+    background-color: rgb(240, 239, 239);
+    border-radius: 60rpx;
+    height: 70rpx;
+    color: grey;
+    font-size: 20rpx;
+}
+
+.C_momentInfo {
+    margin-left: 20rpx;
+    flex: 3;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    font-size: 35rpx;
 }

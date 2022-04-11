@@ -1,8 +1,7 @@
+import { BASE_URL } from '../config/index'
 const token = `${wx.getStorageSync('TOKEN_KEY')}`
-
-const BASE_URL = "http://112.124.28.77:8005"
 // 用我已经部署好的
-const LOGIN_BASE_URL = "http://112.124.28.77:8005"
+const LOGIN_BASE_URL = BASE_URL
 // 用我给你的登录服务器代码,自己部署
 // const LOGIN_BASE_URL = "http://localhost:3000"
 
@@ -37,6 +36,9 @@ class HYRequest {
   }
   post(url, data, isAuth = false, header) {
     return this.request(url, "POST", data, isAuth, header)
+  }
+  delete(url, params, isAuth = false, header) {
+    return this.request(url, "DELETE", params, isAuth, header)
   }
 }
 

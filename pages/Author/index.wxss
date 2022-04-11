@@ -116,3 +116,10 @@ Page {
 .momentScroll {
     height: 900rpx;
 }
+.empty {
+    text-align: center;
+}
+.emptyText {
+    font-size: 25rpx;
+    color: grey;
+}

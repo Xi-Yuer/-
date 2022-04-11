@@ -1,0 +1,1 @@
+<view class="addTag">{{name}}</view>

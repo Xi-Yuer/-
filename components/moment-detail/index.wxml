@@ -1,41 +1,62 @@
 <wxs src="../../utils/time.wxs" module="Time"></wxs>
 <view class="moment">
-    <!-- 用户 -->
-    <view class="user">
-        <view class="avatarUrl">
-            <image src="{{moment.author.avatarUrl}}" mode="aspectFill"></image>
+    <scroll-view scroll-y style="height: 90vh;">
+        <!-- 用户 -->
+        <view class="user">
+            <view class="avatarUrl">
+                <image src="{{moment.author.avatarUrl}}" mode="aspectFill"></image>
+            </view>
+            <view class="momentInfo">
+                <view class="avatarName">{{moment.author.name}}</view>
+                <view class="momentTime">{{Time.getTime(moment.updateTime)}}</view>
+            </view>
         </view>
-        <view class="momentInfo">
-            <view class="avatarName">{{moment.author.name}}</view>
-            <view class="momentTime">{{Time.getTime(moment.updateTime)}}</view>
+        <!-- 文字 -->
+        <view class="momentText" bindtap="navToMoment">
+            <text>{{moment.content}}</text>
         </view>
-    </view>
-    <!-- 文字 -->
-    <view class="momentText" bindtap="navToMoment">
-        <text>{{moment.content}}</text>
-    </view>
-    <!-- 图片 -->
-    <view class="momentImg" wx:if="{{moment.images}}">
-        <van-col span="6" gutter="10">
+        <!-- 图片 -->
+        <view class="momentImg" wx:if="{{moment.images}}">
             <block wx:for="{{moment.images}}" wx:key="index">
-                <van-image bind:click="onClickShow" data-index="{{index}}" width="80" height="80" src="{{item}}" class="momenItemImg" />
+                <image data-index="{{index}}" bindtap="onClickShow" src="{{item}}" class="momenItemImg" mode="aspectFit" />
             </block>
-            <van-overlay show="{{ show }}" bind:click="onClickHide">
-                <view class="wrapper">
-                    <image mode="aspectFit" block src="{{moment.images[imgIndex]}}" catch:tap="noop"></image>
-                </view>
-            </van-overlay>
-        </van-col>
+        </view>
+        <!-- 标签 -->
+        <view class="tag">
+            <block wx:for="{{moment.labels}}" wx:key="index">
+                <van-tag plain type="primary" class="tagItem">{{item.name}}</van-tag>
+            </block>
+        </view>
+        <!-- 评论 -->
+        <area-header title="评论" />
+        <view class="comment">
+            <block wx:for="{{moment.comments}}" wx:key="index">
+                <comment comment="{{item}}" />
+            </block>
+        </view>
+    </scroll-view>
+    <!-- 发表评论 -->
+    <view class="C_sendComment">
+        <view class="C_input">
+            <input type="text" value="{{content}}" bindinput="onReplyCommentValue" placeholder="发表一个友善的评论" />
+        </view>
+        <view class="C_momentInfo">
+            <view>
+                <van-icon name="like-o" /> {{moment.likeCount}}
+            </view>
+            <view>
+                <van-icon name="chat-o" /> {{moment.comments.length}}
+            </view>
+            <view>
+                <van-icon name="label-o" /> {{moment.labels.length}}
+            </view>
+            <view bindtap="deleteMoment">
+                <van-icon name="delete-o" style="color: red;" />
+            </view>
+            <view bindtap="Reply">
+                <van-icon name="guide-o" />发送
+            </view>
+            <view></view>
+        </view>
     </view>
-    <!-- 标签 -->
-    <view class="tag">
-        <block wx:for="{{moment.labels}}" wx:key="{{item.id}}">
-            <van-tag plain type="primary" class="tagItem">{{item.name}}</van-tag>
-        </block>
-    </view>
-    <!-- 评论 -->
-    <area-header title="评论" />
-    <block wx:for="{{moment.comments}}" wx:key="index">
-        <comment comment="{{item}}" />
-    </block>
 </view>

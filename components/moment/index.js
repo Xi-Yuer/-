@@ -1,6 +1,7 @@
 import {
     userIsLikeMoment,
-    likeMomentById
+    likeMomentById,
+    deleteMoment
 } from '../../service/moment/index'
 Component({
     /**
@@ -17,7 +18,6 @@ Component({
      * 组件的初始数据
      */
     data: {
-        show: false,
         imgIndex: 0,
         isLike: false
     },
@@ -42,7 +42,7 @@ Component({
     methods: {
         async likeMoment() {
             const result = await likeMomentById(this.properties.moment.id)
-            if (result.status === 1) {
+            if (result.status === 1 && !this.data.isLike) {
                 this.setData({
                     moment: {
                         ...this.properties.moment,
@@ -50,7 +50,7 @@ Component({
                     },
                     isLike: true
                 })
-            } else if (result.status === 0) {
+            } else if (result.status === 0 && this.data.isLike) {
                 this.setData({
                     moment: {
                         ...this.properties.moment,
@@ -66,10 +66,10 @@ Component({
         },
         onClickShow(e) {
             const imgIndex = e.target.dataset.index
-            this.setData({
-                show: true,
-                imgIndex: imgIndex
-            });
+            wx.previewImage({
+                urls: [...this.data.moment.images],
+                current: this.data.moment.images[imgIndex]
+            })
         },
 
         onClickHide() {
@@ -81,6 +81,30 @@ Component({
         navToMoment() {
             wx.navigateTo({
                 url: '/pages/Moment/index?id=' + this.data.moment.id
+            })
+        },
+        // 删除动态
+        deleteMoment() {
+            wx.showModal({
+                content: '确定要删除该动态',
+                success: (res) => {
+                    const isConfirm = res.confirm
+                    if (isConfirm) {
+                        deleteMoment(this.properties.moment.id, {}, true).then(res => {
+                            if (res.status === 1) {
+                                // 删除成功
+                                this.setData({
+                                    moment: {}
+                                })
+                            } else {
+                                wx.showToast({
+                                    title: '您不具备权限',
+                                    icon:'error'
+                                })
+                            }
+                        })
+                    }
+                }
             })
         }
     }

@@ -1,7 +1,8 @@
 {
   "usingComponents": {
     "area-header":"../../components/area-header/index",
-    "active":"../../components/moment/index"
+    "active":"../../components/moment/index",
+    "van-icon": "@vant/weapp/icon/index"
   },
   "navigationStyle":"custom"
 }

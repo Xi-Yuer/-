@@ -11,14 +11,16 @@ Page({
         searchValue: '',
         momentArr: []
     },
+    async onShow(){
+        const momentResult = await getMomentList(0, 10)
+        this.setData({
+            momentArr: momentResult.data
+        })
+    },
     onLoad: async function (options) {
         const bannerResult = await getBanner()
         this.setData({
             banner: bannerResult.banner
-        })
-        const momentResult = await getMomentList(0, 10)
-        this.setData({
-            momentArr: momentResult.data
         })
     }
 })

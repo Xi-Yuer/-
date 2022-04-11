@@ -7,4 +7,5 @@
             <active moment="{{item}}" />
         </block>
     </view>
+    <edit-tabar />
 </view>

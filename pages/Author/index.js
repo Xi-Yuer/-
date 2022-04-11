@@ -15,7 +15,7 @@ Page({
         name: '',
         password: '',
         userInfo: {},
-        userMomentList:[]
+        userMomentList: []
     },
     loginBtnClick() {
         this.setData({
@@ -106,7 +106,13 @@ Page({
         const userId = wx.getStorageSync('USER_ID')
         const momentList = await getUserAllMoment(userId)
         this.setData({
-            userMomentList:momentList.data
+            userMomentList: momentList.data
+        })
+    },
+    // 跳转Edit页面
+    navToEdit() {
+        wx.navigateTo({
+            url: '/pages/Edit/index',
         })
     }
 })

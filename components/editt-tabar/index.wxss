@@ -1,0 +1,15 @@
+.edit{
+    position: sticky;
+    margin-left: 600rpx;
+    bottom: 180rpx;
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 50%;
+    background-color: rgb(255, 200, 99);
+    text-align: center;line-height: 80rpx;
+    font-size: 40rpx;
+}
+.edit:active{
+    background-color: white;
+    transition: all linear 0.1s;
+}

@@ -49,6 +49,13 @@
             <block wx:for="{{userMomentList}}" wx:key="index">
                 <active moment="{{item}}" />
             </block>
+            <view class="empty" wx:if="{{userMomentList.length===0}}">
+                <image src="../../assets/img/empty.png" mode="aspectFit"></image>
+                <view>
+                <text class="emptyText">暂无动态,快去发表动态吧！</text>
+                <van-icon name="edit" bindtap="navToEdit" />
+                </view>
+            </view>
         </scroll-view>
     </view>
 </view>

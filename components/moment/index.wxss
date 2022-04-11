@@ -44,6 +44,7 @@
 }
 
 .momenItemImg {
+    margin-right: 10rpx;
     flex: 1;
 }
 
@@ -59,19 +60,6 @@
     flex: 1;
     text-align: center;
     font-size: 30rpx;
-}
-
-.wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-}
-
-.block {
-    width: 120px;
-    height: 120px;
-    background-color: #fff;
 }
 
 .isLike {

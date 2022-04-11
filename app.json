@@ -1,9 +1,13 @@
 {
     "pages": [
-        "pages/Author/index",
         "pages/Home/index",
-        "pages/Moment/index"
+        "pages/Author/index",
+        "pages/Moment/index",
+        "pages/Edit/index"
     ],
+    "usingComponents": {
+        "van-icon": "@vant/weapp/icon/index"
+    },
     "window": {
         "backgroundTextStyle": "light",
         "navigationBarBackgroundColor": "#ffe472",
@@ -12,8 +16,7 @@
     },
     "tabBar": {
         "selectedColor": "#ffe472",
-        "list": [
-            {
+        "list": [{
                 "pagePath": "pages/Home/index",
                 "text": "动态",
                 "iconPath": "assets/img/action(b).png",

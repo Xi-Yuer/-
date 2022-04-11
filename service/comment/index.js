@@ -9,7 +9,13 @@ const userIsLike = async (commentId) => {
     const result = await request.get(`/comment/${commentId}/islike`, {}, true)
     return result
 }
+// 发表评论
+const sendComment = async (data) => {
+    const result = await request.post(`/comment`, data, true)
+    return result
+}
 export {
     likeCommentById,
-    userIsLike
+    userIsLike,
+    sendComment
 }

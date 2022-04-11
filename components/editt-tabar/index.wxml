@@ -1,0 +1,3 @@
+<view class="edit">
+    <van-icon name="edit" bindtap="navToEdit" />
+</view>
