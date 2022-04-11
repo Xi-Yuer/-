@@ -4,8 +4,10 @@
     <area-header title="热门动态" />
     <view>
         <block wx:for="{{momentArr}}" wx:key="index">
-            <active moment="{{item}}" />
+            <moment moment="{{item}}" />
         </block>
     </view>
+</view>
+<view class="edit">
     <edit-tabar />
 </view>

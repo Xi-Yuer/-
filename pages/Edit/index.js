@@ -9,8 +9,8 @@ Page({
     data: {
         fileList: [],
         token: wx.getStorageSync('TOKEN_KEY'),
-        content: '',
         labels: [],
+        message:'',
         value: ''
     },
     // 添加标签
@@ -75,7 +75,7 @@ Page({
             title: '发表成功',
         })
         wx.switchTab({
-            url: '/pages/Author/index'
+            url: '/pages/Home/index'
         })
     }
 

@@ -3,7 +3,7 @@
     "Banner":"../../components/banner/index",
     "van-search": "@vant/weapp/search/index",
     "area-header":"../../components/area-header/index",
-    "active":"../../components/moment/index",
+    "moment":"../../components/moment/index",
     "edit-tabar":"../../components/editt-tabar/index"
   }
 }

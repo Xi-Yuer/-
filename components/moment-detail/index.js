@@ -1,5 +1,6 @@
 import {
-    sendComment
+    sendComment,
+    deleteComment
 } from '../../service/comment/index'
 import {
     getMomentCommentById,
@@ -10,12 +11,20 @@ Component({
         moment: {
             type: Object,
             value: {}
+        },
+        comment: {
+            type: Array,
+            value: []
         }
     },
     data: {
         show: false,
+        load: true,
         imgIndex: 0,
         content: ''
+    },
+    lifetimes: {
+        attached: function () {}
     },
     methods: {
         onClickShow(e) {
@@ -37,7 +46,7 @@ Component({
                 url: '/pages/Moment/index?id=' + this.data.moment.id
             })
         },
-        onReplyCommentValue(event) {
+        ReplyCommentValue(event) {
             const content = event.detail.value
             this.setData({
                 content
@@ -51,13 +60,14 @@ Component({
                 })
                 if (result.status === 1) {
                     // 发表评论成功
-                    const result = await getMomentCommentById(this.properties.moment.id, 0, 20)
-                    this.setData({
-                        moment: {
-                            ...this.properties.moment,
-                            comments: [...result]
-                        },
-                        content: ''
+                    // 重新获取评论
+                    // const result = await getMomentCommentById(this.properties.moment.id, 0, 20)
+                    // this.setData({
+                    //     comment: result,
+                    //     content: ''
+                    // })
+                    wx.redirectTo({
+                        url:`/pages/Moment/index?id=${this.properties.moment.id}`
                     })
                 }
             } else {
@@ -88,6 +98,27 @@ Component({
                     }
                 }
             })
+        },
+        // 删除评论
+        async deleteComment(e) {
+            const id = e.currentTarget.dataset.id
+            const result = await deleteComment(id)
+            if (result.status === 1) {
+                // 成功
+                // 重新获取评论
+                // const result = await getMomentCommentById(this.properties.moment.id, 0, 20)
+                // this.setData({
+                //     comment: result
+                // })
+                wx.redirectTo({
+                    url:`/pages/Moment/index?id=${this.properties.moment.id}`
+                })
+            } else {
+                wx.showToast({
+                    title: '您没有权限',
+                    icon: 'error'
+                })
+            }
         }
     },
     // 我爱你就像飞蛾扑火那样无所畏惧

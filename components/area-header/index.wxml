@@ -1,3 +1,5 @@
 <view class="area-header">
-    <text class="title">{{title}}</text>
+    <van-divider contentPosition="center" dashed >
+        {{title}}
+    </van-divider>
 </view>

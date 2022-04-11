@@ -3,7 +3,8 @@ import {
 } from '../../service/moment/index'
 Page({
     data: {
-        moment: {}
+        moment: {},
+        comment:[]
     },
 
     /**
@@ -13,7 +14,8 @@ Page({
         const momentId = options.id
         const momentResult = await getMomentById(momentId)
         this.setData({
-            moment: momentResult.data[0]
+            moment: momentResult.data[0],
+            comment:momentResult.data[0].comments
         })
     },
 

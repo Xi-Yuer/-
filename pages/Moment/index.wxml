@@ -1,1 +1,1 @@
-<moment-detail moment="{{moment}}" />
+<moment-detail moment="{{moment}}" comment="{{comment}}" />

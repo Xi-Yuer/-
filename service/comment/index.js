@@ -14,8 +14,16 @@ const sendComment = async (data) => {
     const result = await request.post(`/comment`, data, true)
     return result
 }
+// 删除评论
+const deleteComment = async (commentId) => {
+    const token = wx.getStorageSync('TOKEN_KEY')
+    const Authorization = `Bearer ` + token
+    const result = await request.delete(`/comment/${commentId}`,{},true,Authorization)
+    return result
+}
 export {
     likeCommentById,
     userIsLike,
-    sendComment
+    sendComment,
+    deleteComment
 }

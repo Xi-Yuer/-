@@ -4,7 +4,7 @@
     <van-field 
         maxlength="{{500}}" 
         show-word-limit 
-        value="{{ message }}" 
+        value="" 
         type="textarea" 
         placeholder="这一刻的想法..." 
         bind:change="onChange"
@@ -12,7 +12,7 @@
     </van-cell-group>
     <!-- 主题标签 -->
     <view class="tag">
-    <block wx:for="{{labels}}">
+    <block wx:for="{{labels}}" wx:key="index">
         <tag name="{{item}}" />
     </block>
     <view class="addTag">

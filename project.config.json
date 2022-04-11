@@ -46,7 +46,7 @@
         "useCompilerPlugins": false
     },
     "compileType": "miniprogram",
-    "libVersion": "2.18.1",
+    "libVersion": "2.23.4",
     "appid": "wxf4e4518c04dcc59a",
     "projectname": "动态猫",
     "debugOptions": {

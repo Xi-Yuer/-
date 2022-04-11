@@ -2,10 +2,9 @@
     "component": true,
     "usingComponents": {
         "comment": "../comment/index",
-        "van-image": "@vant/weapp/image/index",
-        "van-icon": "@vant/weapp/icon/index",
-        "van-overlay": "@vant/weapp/overlay/index",
         "area-header": "../../components/area-header/index",
-        "van-tag": "@vant/weapp/tag/index"
+        "van-tag": "@vant/weapp/tag/index",
+        "van-swipe-cell": "@vant/weapp/swipe-cell/index",
+        "van-empty": "@vant/weapp/empty/index"
     }
 }
