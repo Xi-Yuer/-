@@ -5,5 +5,7 @@
     "area-header":"../../components/area-header/index",
     "moment":"../../components/moment/index",
     "edit-tabar":"../../components/editt-tabar/index"
-  }
+  },
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark"
 }

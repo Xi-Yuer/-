@@ -69,6 +69,7 @@ Page({
                     wx.showToast({
                         title: '登录成功'
                     })
+                    await this.getUserMoment()
                     this.setData({
                         userInfo: userInfoResult.data[0],
                         loginSucessfull: true,
@@ -89,7 +90,7 @@ Page({
             })
         }
     },
-    onLoad: async function (options) {
+    async getUserInfo(){
         const token = wx.getStorageSync('TOKEN_KEY')
         if (token) {
             const userId = wx.getStorageSync('USER_ID')
@@ -103,7 +104,21 @@ Page({
         }
     },
     onShow: async function () {
+        const token = wx.getStorageSync('TOKEN_KEY')
+        if (!token) {
+            this.setData({
+                showLoginPage: true,
+                isLogin: true,
+                loginSucessfull: false,
+            })
+            return
+        }
+        await this.getUserInfo()
+        await this.getUserMoment()
+    },
+    async getUserMoment() {
         const userId = wx.getStorageSync('USER_ID')
+        if (!userId) return
         const momentList = await getUserAllMoment(userId)
         this.setData({
             userMomentList: momentList.data
@@ -113,6 +128,12 @@ Page({
     navToEdit() {
         wx.navigateTo({
             url: '/pages/Edit/index',
+        })
+    },
+    // 跳转到用户资料编辑页面
+    navToUpdateUserInfo() {
+        wx.navigateTo({
+            url: `/pages/UpdateUser/index?userId=${this.data.userInfo.id}`,
         })
     }
 })

@@ -1,5 +1,6 @@
+<!-- <scroll-view scroll-y lower-threshold="100" bindscrolltolower="scrollToLower" style="height: 100vh;"> -->
+<van-search shape="round" disabled background="#fafafa"value="{{searchValue}}" placeholder="搜索动态" />
 <view class="home">
-    <van-search shape="round" disabled background="#fafafa" value="{{searchValue}}" placeholder="搜索动态" />
     <Banner banner="{{banner}}"></Banner>
     <area-header title="热门动态" />
     <view>
@@ -8,6 +9,8 @@
         </block>
     </view>
 </view>
+<area-header title="暂时没有更多了哦！" />
+<!-- </scroll-view> -->
 <view class="edit">
     <edit-tabar />
 </view>

@@ -13,7 +13,7 @@ page {
     align-items: center;
 }
 .send .sendBtn {
-    border: 1rpx solid #ffe472;
+    /* border: 1rpx solid #ffe472; */
     padding: 5rpx 30rpx;
     margin-right: 20rpx;
     border-radius: 25rpx;
@@ -28,10 +28,15 @@ page {
 
 .addTag{
     display: flex;justify-content: center;align-items: center;
-    width: 80rpx;
-    height: 35rpx;
+    width: 100rpx;
+    height: 50rpx;
     border: 1rpx sold grey;
     background-color: rgb(231, 230, 230);
     text-align: center;
-    font-size: 15rpx;
+    font-size: 13rpx;
+}
+.addTag input {
+    color: orange;
+    border: none;outline: none;
+    text-align: center;
 }

@@ -1,0 +1,18 @@
+<wxs src="../../utils/time.wxs" module="Time"></wxs>
+<view class="updateInfo">
+    <van-cell-group inset>
+        <van-cell title="头像" center>
+            <van-uploader slot="right-icon" bind:after-read="updateAvatar">
+                <image src="{{user.avatarUrl + Time.getTimeTemp()}}"></image>
+            </van-uploader>
+        </van-cell>
+        <van-cell title="昵称" value="{{user.name}}" />
+        <van-cell title="性别" value="{{user.gender || '保密'}}" />
+        <van-cell title="生日" value="{{Time.getTime(user.createTime)}}" />
+        <van-cell title="个人简介" value="{{user.description || '暂无简介'}}" />
+        <van-cell title="退出登录" bindtap="logOut">
+            <van-icon slot="right-icon" style="color: red;" name="close" />
+        </van-cell> 
+        <van-cell title="联系我" label="微信号：fx2214380963" />
+    </van-cell-group>
+</view>

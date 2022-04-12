@@ -23,9 +23,6 @@ Component({
         imgIndex: 0,
         content: ''
     },
-    lifetimes: {
-        attached: function () {}
-    },
     methods: {
         onClickShow(e) {
             const imgIndex = e.target.dataset.index
@@ -42,7 +39,7 @@ Component({
         },
         // 路由跳转
         navToMoment() {
-            wx.navigateTo({
+            wx.redirectTo({
                 url: '/pages/Moment/index?id=' + this.data.moment.id
             })
         },
@@ -61,14 +58,12 @@ Component({
                 if (result.status === 1) {
                     // 发表评论成功
                     // 重新获取评论
-                    // const result = await getMomentCommentById(this.properties.moment.id, 0, 20)
+                    // const result = await getMomentCommentById(this.properties.moment.id, 0, 50)
                     // this.setData({
                     //     comment: result,
                     //     content: ''
                     // })
-                    wx.redirectTo({
-                        url:`/pages/Moment/index?id=${this.properties.moment.id}`
-                    })
+                    this.navToMoment()
                 }
             } else {
                 wx.showToast({
@@ -110,9 +105,7 @@ Component({
                 // this.setData({
                 //     comment: result
                 // })
-                wx.redirectTo({
-                    url:`/pages/Moment/index?id=${this.properties.moment.id}`
-                })
+               this.navToMoment()
             } else {
                 wx.showToast({
                     title: '您没有权限',

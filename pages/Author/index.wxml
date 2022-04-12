@@ -15,7 +15,7 @@
         <text>{{isLogin?'登录':'注册'}}</text>
     </view>
     <view class="loginInput">
-        <input value="{{name}}" type="text" bindinput="nameInput" placeholder="请输入用户名" />
+        <input value="{{name}}" type="text" bindinput="nameInput" placeholder="请输入昵称" />
         <input value="{{password}}" type="text" bindinput="passwordInput" placeholder="请输入密码" password />
     </view>
     <view>
@@ -33,12 +33,12 @@
     </view>
     <view class="userInfo">
         <view class="avatarImg">
-            <image src="{{userInfo.avatarUrl}}"></image>
+            <image src="{{userInfo.avatarUrl + Time.getTimeTemp()}}"></image>
         </view>
         <view class="avatarData">
             <text class="userName">{{userInfo.name}}</text>
             <text class="createTime iconfont icon-shengri">{{Time.getTime(userInfo.createTime)}}</text>
-            <view class="updateBtn">
+            <view class="updateBtn" bindtap="navToUpdateUserInfo">
                 <text class="updateInfo">编辑资料</text>
             </view>
         </view>
@@ -47,13 +47,13 @@
         <area-header title="我的动态" />
         <scroll-view scroll-y class="momentScroll">
             <block wx:for="{{userMomentList}}" wx:key="index">
-                <active moment="{{item}}" />
+                <moment moment="{{item}}" />
             </block>
             <view class="empty" wx:if="{{userMomentList.length===0}}">
-                <image src="../../assets/img/empty.png" mode="aspectFit"></image>
+                <van-empty />
                 <view>
-                <text class="emptyText">暂无动态,快去发表动态吧！</text>
-                <van-icon name="edit" bindtap="navToEdit" />
+                    <text class="emptyText">暂无动态,快去发表动态吧！</text>
+                    <van-icon name="edit" bindtap="navToEdit" />
                 </view>
             </view>
         </scroll-view>

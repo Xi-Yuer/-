@@ -3,7 +3,7 @@
     <!-- 用户 -->
     <view class="user">
         <view class="avatarUrl">
-            <image src="{{moment.author.avatarUrl}}" mode="aspectFill"></image>
+            <image src="{{moment.author.avatarUrl + Time.getTimeTemp()}}" mode="aspectFill"></image>
         </view>
         <view class="momentInfo">
             <view class="avatarName">{{moment.author.name}}</view>
@@ -18,7 +18,7 @@
     <view class="momentImg" wx:if="{{moment.images}}">
         <van-col span="6" gutter="10">
             <block wx:for="{{moment.images}}" wx:key="index">
-                <van-image bind:click="onClickShow" data-index="{{index}}" width="100" height="100" src="{{item}}" class="momenItemImg" />
+                <van-image bind:click="onClickShow" data-index="{{index}}" width="100" height="100" src="{{item}}?type=small" class="momenItemImg" />
             </block>
         </van-col>
     </view>

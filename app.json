@@ -3,7 +3,8 @@
         "pages/Home/index",
         "pages/Author/index",
         "pages/Moment/index",
-        "pages/Edit/index"
+        "pages/Edit/index",
+        "pages/UpdateUser/index"
     ],
     "usingComponents": {
         "van-icon": "@vant/weapp/icon/index"
@@ -16,7 +17,8 @@
     },
     "tabBar": {
         "selectedColor": "#ffe472",
-        "list": [{
+        "list": [
+            {
                 "pagePath": "pages/Home/index",
                 "text": "动态",
                 "iconPath": "assets/img/action(b).png",

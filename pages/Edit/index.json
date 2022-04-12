@@ -2,7 +2,8 @@
   "usingComponents": {
     "van-field": "@vant/weapp/field/index",
     "van-uploader": "@vant/weapp/uploader/index",
-    "tag": "../../components/tag/index"
+    "tag": "../../components/tag/index",
+    "van-divider": "@vant/weapp/divider/index"
   },
   "navigationBarTitleText": "发表动态"
 }

@@ -10,8 +10,9 @@ Page({
         fileList: [],
         token: wx.getStorageSync('TOKEN_KEY'),
         labels: [],
-        message:'',
-        value: ''
+        message: '',
+        value: null,
+        content:''
     },
     // 添加标签
     AddTag(e) {
@@ -19,6 +20,14 @@ Page({
         this.setData({
             labels: [...this.data.labels, tag],
             value: ''
+        })
+    },
+    deleteTag(e) {
+        const index = e.target.dataset.index
+        let oldlabels = this.data.labels
+        oldlabels.splice(index, 1)
+        this.setData({
+            labels: oldlabels
         })
     },
     onChange(event) {
@@ -65,6 +74,13 @@ Page({
         }
     },
     async sendMoment() {
+        if (this.data.content === '') {
+            wx.showToast({
+                title: '内容不能为空',
+                icon: 'error'
+            })
+            return
+        }
         const result = await sendMoment(this.data.content)
         const momentId = result.data.insertId
         await this.loadFile(momentId)

@@ -1,40 +1,21 @@
 <view>
     <!-- 文本编辑 -->
     <van-cell-group>
-    <van-field 
-        maxlength="{{500}}" 
-        show-word-limit 
-        value="" 
-        type="textarea" 
-        placeholder="这一刻的想法..." 
-        bind:change="onChange"
-        autosize border="{{ true }}" />
+        <van-field maxlength="{{500}}" show-word-limit value="" type="textarea" placeholder="这一刻的想法..." bind:change="onChange" autosize border="{{ true }}" />
     </van-cell-group>
-    <!-- 主题标签 -->
-    <view class="tag">
-    <block wx:for="{{labels}}" wx:key="index">
-        <tag name="{{item}}" />
-    </block>
-    <view class="addTag">
-    <input 
-        maxlength="{{8}}"
-        type="text" 
-        placeholder="+添加标签"
-        bindconfirm="AddTag"
-        value="{{value}}"
-        />
-    </view>
-    </view>
     <!-- 图片上传 -->
-    <van-uploader 
-        file-list="{{ fileList }}" 
-        bind:after-read="afterRead" 
-        max-count="9" 
-        deletable="{{ true }}" 
-        bind:delete="deleteImg" 
-        preview-image="{{true}}"
-        preview-size="210rpx"
-        multiple="{{true}}" />
+    <van-uploader file-list="{{ fileList }}" bind:after-read="afterRead" max-count="9" deletable="{{ true }}" bind:delete="deleteImg" preview-image="{{true}}" preview-size="210rpx" multiple="{{true}}" />
+    <!-- 主题标签 -->
+    <van-divider />
+    <view class="tag">
+        <block wx:for="{{labels}}" wx:key="index">
+            <tag name="{{item}}" bindtap="deleteTag" data-index="{{index}}" />
+        </block>
+        <view class="addTag">
+            <input maxlength="{{8}}" type="text" placeholder=" + 添加标签 " bindconfirm="AddTag" value="{{value}}" />
+        </view>
+    </view>
+    <!-- 发送动态 -->
     <view class="send">
         <view class="sendBtn">
             <text bindtap="sendMoment">发送</text>

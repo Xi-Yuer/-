@@ -41,7 +41,7 @@ const addTags = async (momentId, labels) => {
     return result
 }
 // 获取动态评论
-const getMomentCommentById = async (momentId, offset = 0, limmit = 20) => {
+const getMomentCommentById = async (momentId, offset = 0, limmit = 50) => {
     const result = await request.get(`/comment?momentId=${momentId}&limit=${limmit}&offset${offset}`)
     return result
 }

@@ -1,7 +1,7 @@
 <wxs src="../../utils/time.wxs" module="Time"></wxs>
 <view class="comment">
     <view class="avatart">
-        <image src="{{comment.user.avatarUrl}}"></image>
+        <image src="{{comment.user.avatarUrl + Time.getTimeTemp()}}"></image>
     </view>
     <view class="text">
         <view class="commentsInfo">

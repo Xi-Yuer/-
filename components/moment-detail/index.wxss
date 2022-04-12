@@ -67,6 +67,7 @@
 .C_sendComment {
     position: fixed;
     height: 120rpx;
+    z-index: 1;
     display: flex;
     justify-content: space-between;
     align-items: center;
